@@ -1,0 +1,21 @@
+version: "3.3"
+
+networks:
+  proxy:
+    external: true
+
+services:
+  ddns:
+    build: .
+    #ports:
+    #  - "9900:9900"
+    restart: always
+    networks:
+      -proxy
+    labels:
+      - traefik.docker.network=proxy
+      - traefik.port=8888
+      - "traefik.frontend.rule=Host:ddns.test.org"
+      -  traefik.frontend.entryPoints=http,https
+      - "traefik.frontend.redirect.entryPoint=http"
+      - "traefik.frontend.passHostHeader=true"

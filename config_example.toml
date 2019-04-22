@@ -1,0 +1,7 @@
+[auth]
+username="test"
+password="test"
+
+[cloudflare]
+email="test"
+api_key="test"
