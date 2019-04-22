@@ -59,7 +59,7 @@ class DDNS_updater(object):
         else:
             return {
                 'success': False,
-                'message': '\n'.join(res.json()['messages'])
+                'message': "error create {domain}".format(domain=record) + '\n'.join(res.json()['messages'])
             }
 
     def update_exist_record(self, domain_id, record_id, record, record_type, content):
